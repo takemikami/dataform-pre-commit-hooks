@@ -11,3 +11,10 @@
   files: (\.sqlx|\.js)$
   language: script
   pass_filenames: true
+
+- id: dataform-sqlfluff-lint
+  name: Dataform sqlfluff lint
+  entry: dataform-sqlfluff-lint
+  files: (\.sqlx|\.js)$
+  language: python
+  pass_filenames: true
