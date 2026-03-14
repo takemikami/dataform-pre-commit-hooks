@@ -1,0 +1,13 @@
+- id: dataform-compile
+  name: Dataform compile
+  entry: hooks/dataform-compile.sh
+  files: (\.sqlx|\.js)$
+  language: script
+  pass_filenames: false
+
+- id: dataform-format
+  name: Dataform format
+  entry: hooks/dataform-format.sh
+  files: (\.sqlx|\.js)$
+  language: script
+  pass_filenames: true
