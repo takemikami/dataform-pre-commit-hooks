@@ -130,7 +130,6 @@ def main():
             print(f'{e["target_file"]}{ops}${e["idx"]+1}:{e["start_line_no"]}:{e["start_line_pos"]} {e["code"]} {e["description"]}')
         sys.exit(1)
 
-    sys.exit(1)
 
 if __name__ == "__main__":
     main()
