@@ -39,14 +39,26 @@ def main():
     sqlfluff_config = {
         "dialect": "bigquery",
         "exclude_rules": [
-            "LT01", "LT02", "LT03", "LT04", "LT05", "LT06", "LT07", "LT08", "LT09", "LT10",
-            "LT11", "LT12", "LT13", "LT14", "LT15", "CV03" 
+            "LT01",
+            "LT02",
+            "LT03",
+            "LT04",
+            "LT05",
+            "LT06",
+            "LT07",
+            "LT08",
+            "LT09",
+            "LT10",
+            "LT11",
+            "LT12",
+            "LT13",
+            "LT14",
+            "LT15",
+            "CV03",
         ],
     }
     if config_path:
-        sqlfluff_config = {
-            "config_path": config_path
-        }
+        sqlfluff_config = {"config_path": config_path}
 
     workflow_settings_path = os.path.join(project_dir, "workflow_settings.yaml")
     if not os.path.exists(workflow_settings_path):
@@ -96,7 +108,7 @@ def main():
         if project_dir != ".":
             if not target_file.startswith(project_dir):
                 continue
-            e = filename_map.get(target_file[len(project_dir)+1:])
+            e = filename_map.get(target_file[len(project_dir) + 1 :])
         else:
             e = filename_map.get(target_file)
         if not e:
@@ -104,30 +116,29 @@ def main():
         query_map = {
             "queries": [
                 *([e.get("query")] if "query" in e else []),
-                *e.get("queries", [])
+                *e.get("queries", []),
             ],
             "preOps": e.get("preOps", []),
             "postOps": e.get("postOps", []),
         }
-        violations.extend([
-            {
-                "target_file": target_file,
-                "ops": ops,
-                "idx": idx,
-                **result
-            }
-            for ops, queries in query_map.items()
-            for idx, sql in enumerate(queries)
-            for result in sqlfluff.lint(sql, **sqlfluff_config)
-        ])
+        violations.extend(
+            [
+                {"target_file": target_file, "ops": ops, "idx": idx, **result}
+                for ops, queries in query_map.items()
+                for idx, sql in enumerate(queries)
+                for result in sqlfluff.lint(sql, **sqlfluff_config)
+            ]
+        )
 
     if copied_file:
         os.remove(copied_file)
 
     if violations:
         for e in violations:
-            ops = f'#{e["ops"]}' if e["ops"] != "queries" else ""
-            print(f'{e["target_file"]}{ops}${e["idx"]+1}:{e["start_line_no"]}:{e["start_line_pos"]} {e["code"]} {e["description"]}')
+            ops = f"#{e['ops']}" if e["ops"] != "queries" else ""
+            print(
+                f"{e['target_file']}{ops}${e['idx'] + 1}:{e['start_line_no']}:{e['start_line_pos']} {e['code']} {e['description']}"
+            )
         sys.exit(1)
 
 
