@@ -1,6 +1,6 @@
 [project]
 name = "dataform-pre-commit-hooks"
-version = "0.0.3"
+version = "0.0.4"
 description = "pre-commit hooks for Dataform"
 readme = "README.md"
 requires-python = ">=3.14.0"
