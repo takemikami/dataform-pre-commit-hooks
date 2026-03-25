@@ -1,6 +1,6 @@
 [project]
 name = "dataform-pre-commit-hooks"
-version = "0.0.2"
+version = "0.0.3"
 description = "pre-commit hooks for Dataform"
 readme = "README.md"
 requires-python = ">=3.14.0"
@@ -13,3 +13,8 @@ dataform-sqlfluff-lint = "dataform_sqlfluff_lint:main"
 
 [tool.setuptools]
 py-modules = ["dataform_sqlfluff_lint"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.7",
+]
