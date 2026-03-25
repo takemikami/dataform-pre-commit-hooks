@@ -58,7 +58,7 @@ def main():
         ],
     }
     if config_path:
-        sqlfluff_config = {"config_path": config_path}
+        sqlfluff_config = {"config_path": os.path.expanduser(config_path)}
 
     workflow_settings_path = os.path.join(project_dir, "workflow_settings.yaml")
     if not os.path.exists(workflow_settings_path):
