@@ -18,3 +18,10 @@
   files: (\.sqlx|\.js)$
   language: python
   pass_filenames: true
+
+- id: dataform-syntax-check
+  name: Dataform syntax check
+  entry: dataform-syntax-check
+  files: (\.sqlx|\.js)$
+  language: python
+  pass_filenames: true
