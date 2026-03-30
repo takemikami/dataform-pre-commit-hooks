@@ -37,7 +37,7 @@ Format files with dataform format command.
 Lint SQLs with sqlfluff lint command.
 
 - `--project-dir` - Specify dataform project root dir. ex: `['--project-dir', 'project1']`
-- `--config-path` - Specify sqlfluff config file path. ex: `['--project-path', '.sqlfluff']`
+- `--config-path` - Specify sqlfluff config file path. ex: `['--config-path', '.sqlfluff']`
 
 ### dataform-syntax-check
 
