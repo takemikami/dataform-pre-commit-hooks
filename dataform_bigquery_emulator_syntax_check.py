@@ -154,6 +154,7 @@ def main():
                 is_parse_error = False
         if is_parse_error:
             return [error_message]
+        return []
 
     violations = []
     for target_file in target_files:
