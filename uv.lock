@@ -175,7 +175,7 @@ wheels = [
 
 [[package]]
 name = "dataform-pre-commit-hooks"
-version = "0.0.4"
+version = "0.0.6"
 source = { virtual = "." }
 dependencies = [
     { name = "google-cloud-bigquery" },

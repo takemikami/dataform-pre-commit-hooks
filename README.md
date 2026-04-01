@@ -10,7 +10,7 @@ Add this to your .pre-commit-config.yaml
 ```yaml
 repos:
 - repo: https://github.com/takemikami/dataform-pre-commit-hooks.git
-  rev: v0.0.5
+  rev: v0.0.6
   hooks:
     - id: dataform-compile
     - id: dataform-format
