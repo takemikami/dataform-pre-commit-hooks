@@ -78,7 +78,6 @@ def main():
     )
 
     if result.returncode != 0:
-        print(result.stdout)
         if result.stderr:
             print(result.stderr, file=sys.stderr)
         if copied_file:
