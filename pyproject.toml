@@ -13,6 +13,9 @@ dependencies = [
 dataform-sqlfluff-lint = "dataform_sqlfluff_lint:main"
 dataform-syntax-check = "dataform_bigquery_emulator_syntax_check:main"
 
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
 [tool.setuptools]
 py-modules = ["dataform_sqlfluff_lint", "dataform_bigquery_emulator_syntax_check"]
 
