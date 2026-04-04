@@ -4,6 +4,7 @@ import os
 import shutil
 import subprocess
 import sys
+
 import sqlfluff
 
 
@@ -67,7 +68,8 @@ def main():
             copied_file = workflow_settings_path
         else:
             print(
-                f"Error: workflow_settings.yaml not found in {project_dir} and --workflow-settings not specified"
+                f"Error: workflow_settings.yaml not found in {project_dir}"
+                " and --workflow-settings not specified"
             )
             sys.exit(1)
 
@@ -136,7 +138,9 @@ def main():
         for e in violations:
             ops = f"#{e['ops']}" if e["ops"] != "queries" else ""
             print(
-                f"{e['target_file']}{ops}${e['idx'] + 1}:{e['start_line_no']}:{e['start_line_pos']} {e['code']} {e['description']}"
+                f"{e['target_file']}{ops}${e['idx'] + 1}"
+                f":{e['start_line_no']}:{e['start_line_pos']}"
+                f" {e['code']} {e['description']}"
             )
         sys.exit(1)
 

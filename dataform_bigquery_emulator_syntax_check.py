@@ -1,11 +1,12 @@
-import subprocess
-import time
-import urllib.request
-import os
 import argparse
 import json
+import os
 import shutil
+import subprocess
 import sys
+import time
+import urllib.request
+
 from google.api_core import client_options
 from google.auth.credentials import AnonymousCredentials
 from google.cloud import bigquery
@@ -87,7 +88,8 @@ def main():
             copied_file = workflow_settings_path
         else:
             print(
-                f"Error: workflow_settings.yaml not found in {project_dir} and --workflow-settings not specified"
+                f"Error: workflow_settings.yaml not found in {project_dir}"
+                " and --workflow-settings not specified"
             )
             sys.exit(1)
 
